@@ -39,6 +39,7 @@ require("vyStatusline").setup()
 ```lua
 require("vyStatusline").setup({
   order = {
+    "mode",
     "filetype",
     "lsp",
     "git_branch",

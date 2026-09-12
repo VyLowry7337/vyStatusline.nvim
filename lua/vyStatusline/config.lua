@@ -2,6 +2,7 @@ local M = {}
 
 M.defaults = {
 	order = {
+		"mode",
 		"filetype",
 		"lsp",
 		"git_branch",
