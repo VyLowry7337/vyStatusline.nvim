@@ -111,9 +111,9 @@ function M.git_diff()
 	end
 
 	local git_icon = {
-		add = "",
-		change = "",
-		delete = "",
+		add = " ",
+		change = " ",
+		delete = " ",
 	}
 
 	local parts = {}
@@ -180,7 +180,7 @@ function M.lsp()
 			and client.name ~= "tailwindcss"
 			and client.name ~= "biome"
 		then
-			local lsp_icon = "%#vyLspIcon#" .. " 󰚗 "
+			local lsp_icon = "%#vyLspIcon#" .. " 󱐋 "
 			local lsp_text = "%#vyLspText#" .. client.name
 
 			return lsp_icon .. lsp_text .. " %*"
@@ -209,12 +209,20 @@ function M.lsp_progress()
 	end
 
 	local progress_frames = {
-		"✶",
-		"✸",
-		"✹",
-		"✺",
-		"✹",
-		"✷",
+		"▰▱▱▱▱▱▱ ",
+		"▰▰▱▱▱▱▱ ",
+		"▰▰▰▱▱▱▱ ",
+		"▰▰▰▰▱▱▱ ",
+		"▰▰▰▰▰▱▱ ",
+		"▰▰▰▰▰▰▱ ",
+		"▰▰▰▰▰▰▰ ",
+		"▰▱▱▱▱▱▱ ",
+		-- "✶",
+		-- "✸",
+		-- "✹",
+		-- "✺",
+		-- "✹",
+		-- "✷",
 	}
 	local ms = vim.uv.hrtime() / 1000000
 	local frame = math.floor(ms / 120) % #progress_frames
