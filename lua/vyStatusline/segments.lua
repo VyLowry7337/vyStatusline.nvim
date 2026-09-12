@@ -180,7 +180,7 @@ function M.lsp()
 			and client.name ~= "tailwindcss"
 			and client.name ~= "biome"
 		then
-			local lsp_icon = "%#vyLspIcon#" .. " 󱐋 "
+			local lsp_icon = "%#vyLspIcon#" .. " 󱤓 "
 			local lsp_text = "%#vyLspText#" .. client.name
 
 			return lsp_icon .. lsp_text .. " %*"
