@@ -15,8 +15,8 @@ M.modes = {
 	["niI"] = { " ", NORMAL, "" },
 	["niR"] = { " ", NORMAL, "" },
 	["niV"] = { " ", NORMAL, "" },
-	["nt"] = { " ", TERMINAL_OFF, "" },
-	["ntT"] = { " ", TERMINAL_OFF, "" },
+	["nt"] = { " OFF", TERMINAL_OFF, "" },
+	["ntT"] = { " OFF", TERMINAL_OFF, "" },
 
 	["no"] = { " ", NORMAL, "" },
 	["nov"] = { " ", NORMAL, "" },
@@ -54,15 +54,15 @@ M.modes = {
 	["r?"] = { " ", CONFIRM, "" },
 	["x"] = { " ", CONFIRM, "" },
 
-	["t"] = { " ", TERMINAL, "" },
-	["!"] = { " ", TERMINAL, "" },
+	["t"] = { " ", TERMINAL, "" },
+	["!"] = { " ", TERMINAL, "" },
 }
 
 M.special = {
-	["snacks_picker_list"] = { " ", "vyExplorerMode", "" },
-	["lazygit"] = { " ", "vyLazyGitMode", "" },
-	["lazy"] = { " ", "vyLazyNvimMode", "󰒲" },
-	["qf"] = { " ", "vyLazyNvimMode", "" },
+	["snacks_picker_list"] = { " ", "vyExplorerMode", "" },
+	["lazygit"] = { "󰒲 ", "vyLazyGitMode", "" },
+	["lazy"] = { "󰒲 ", "vyLazyNvimMode", "" },
+	["qf"] = { "QF", "vyLazyNvimMode", "" },
 }
 
 function M.get(mode_key)
