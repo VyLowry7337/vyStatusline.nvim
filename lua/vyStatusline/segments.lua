@@ -153,6 +153,10 @@ function M.diagnostics()
 end
 
 function M.cursor()
+	if not is_active_window() then
+		return ""
+	end
+
 	local current_line = vim.fn.line(".")
 	local current_column = vim.fn.col(".")
 
