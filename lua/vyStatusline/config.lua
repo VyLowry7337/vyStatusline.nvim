@@ -8,11 +8,11 @@ M.defaults = {
 		"git_diff",
 		"spacer",
 		"lsp_progress",
+		"diagnostics",
 		"spacer",
 		"lsp",
-		"diagnostics",
 		"cwd",
-		"cursor",
+		-- "cursor",
 	},
 }
 
