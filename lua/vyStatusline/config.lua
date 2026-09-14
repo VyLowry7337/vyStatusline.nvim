@@ -14,6 +14,21 @@ M.defaults = {
 		"cwd",
 		-- "cursor",
 	},
+	colors = {
+		bg = "#0E1018",
+		fg = "#C8D0E0",
+		cyan = "#80C8E0",
+		purple = "#B0A0D8",
+		sage = "#90C8A0",
+		peach = "#D0A888",
+		gold = "#D4B878",
+		rose = "#D0909C",
+		teal = "#78B8B0",
+		steel = "#8898B8",
+		none = "none",
+	},
+
+	highlights = {},
 }
 
 M.opts = nil
@@ -28,22 +43,10 @@ function M.setup(user_config)
 
 	M.opts = merged
 
-	local colors = {
-		bg = "#0E1018",
-		fg = "#C8D0E0",
-		cyan = "#80C8E0",
-		purple = "#B0A0D8",
-		sage = "#90C8A0",
-		peach = "#D0A888",
-		gold = "#D4B878",
-		rose = "#D0909C",
-		teal = "#78B8B0",
-		steel = "#8898B8",
-		none = "none",
-	}
+	local colors = M.opts.colors
 
 	local function apply_highlights()
-		local hl = {
+		local base_hl = {
 			-- Statusline segments
 			StatusLine = { bg = colors.none, fg = colors.fg },
 			StatusLineNC = { bg = colors.none, fg = colors.steel },
@@ -79,7 +82,9 @@ function M.setup(user_config)
 			vyLazyNvimMode = { bg = colors.none, fg = colors.steel, bold = true },
 		}
 
-		for name, opts in pairs(hl) do
+		final_hl = vim.tbl_deep_extend("force", base_hl, M.opts.highlights or {})
+
+		for name, opts in pairs(final_hl) do
 			vim.api.nvim_set_hl(0, name, opts)
 		end
 	end
@@ -91,9 +96,7 @@ function M.setup(user_config)
 	vim.api.nvim_create_autocmd("ColorScheme", {
 		group = "vyStatuslineColors",
 		pattern = "*",
-		callback = function()
-			apply_highlights()
-		end,
+		callback = apply_highlights,
 	})
 end
 
