@@ -4,9 +4,20 @@ local config = require("vyStatusline.config")
 
 function M.generate()
 	local winid = vim.g.statusline_winid
-	if winid and vim.api.nvim_win_is_valid(winid) and vim.api.nvim_win_get_config(winid).relative ~= "" then
-		return ""
+	if winid and vim.api.nvim_win_is_valid(winid) then
+		-- Floating window check
+		if vim.api.nvim_win_get_config(winid).relative ~= "" then
+			return "%="
+		end
+
+		-- Snacks picker/explorer check
+		local bufnr = vim.api.nvim_win_get_buf(winid)
+		local ft = vim.bo[bufnr].filetype
+		if ft:match("^snacks_picker_") or ft == "snacks_layout_box" then
+			return "%="
+		end
 	end
+
 	local result = {}
 	for _, v in ipairs(config.get().order) do
 		local module = segments[v]
